@@ -1,6 +1,7 @@
-package yountaewoo.Board;
+package yountaewoo.Board.board;
 
 import jakarta.persistence.*;
+import yountaewoo.Board.post.Post;
 
 import java.util.List;
 import java.util.Objects;
