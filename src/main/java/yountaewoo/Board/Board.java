@@ -8,8 +8,10 @@ import java.util.Objects;
 @Entity
 public class Board {
     private String name;
+
     @OneToMany
     private List<Post> posts;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

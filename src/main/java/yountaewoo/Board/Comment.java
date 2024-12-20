@@ -7,8 +7,10 @@ import java.util.Objects;
 @Entity
 public class Comment {
     private String content;
+
     @ManyToOne
     private Post post;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

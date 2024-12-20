@@ -8,11 +8,15 @@ import java.util.Objects;
 @Entity
 public class Post {
     private String title;
+
     private String content;
+
     @OneToMany
     private List<Comment> comments;
+
     @ManyToOne
     private Board board;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
