@@ -19,9 +19,8 @@ public class Comment {
     protected Comment() {
     }
 
-    public Comment(String content, Long id, Post post) {
+    public Comment(String content, Post post) {
         this.content = content;
-        this.id = id;
         this.post = post;
     }
 

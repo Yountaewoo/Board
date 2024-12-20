@@ -1,4 +1,10 @@
 package yountaewoo.Board.comment;
 
-public class CreateCommentRequest {
+import jakarta.validation.constraints.Size;
+import yountaewoo.Board.post.Post;
+
+public record CreateCommentRequest(
+        @Size(min = 1, max = 20) String content,
+        Post post
+) {
 }

@@ -21,10 +21,8 @@ public class Board {
 
     }
 
-    public Board(Long id, String name, List<Post> posts) {
-        this.id = id;
+    public Board(String name) {
         this.name = name;
-        this.posts = posts;
     }
 
     public Long getId() {
