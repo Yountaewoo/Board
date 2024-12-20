@@ -13,7 +13,7 @@ public class Post {
 
     private String content;
 
-    @OneToMany
+    @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
     @ManyToOne

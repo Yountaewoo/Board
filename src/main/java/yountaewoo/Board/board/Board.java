@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Board {
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "board")
     private List<Post> posts;
 
     @Id
