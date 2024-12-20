@@ -19,6 +19,10 @@ public class Post {
     @ManyToOne
     private Board board;
 
+    private int viewCount;
+
+    private int recommendationCount;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -28,12 +32,14 @@ public class Post {
 
     }
 
-    public Post(Board board, List<Comment> comments, String content, Long id, String title) {
+    public Post(Board board, List<Comment> comments, String content, Long id, int recommendationCount, String title, int viewCount) {
         this.board = board;
         this.comments = comments;
         this.content = content;
         this.id = id;
+        this.recommendationCount = recommendationCount;
         this.title = title;
+        this.viewCount = viewCount;
     }
 
     public Board getBoard() {
@@ -46,6 +52,14 @@ public class Post {
 
     public String getContent() {
         return content;
+    }
+
+    public int getRecommendationCount() {
+        return recommendationCount;
+    }
+
+    public int getViewCount() {
+        return viewCount;
     }
 
     public Long getId() {
@@ -61,12 +75,12 @@ public class Post {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Post post = (Post) o;
-        return Objects.equals(title, post.title) && Objects.equals(content, post.content) && Objects.equals(comments, post.comments) && Objects.equals(board, post.board) && Objects.equals(id, post.id);
+        return viewCount == post.viewCount && recommendationCount == post.recommendationCount && Objects.equals(title, post.title) && Objects.equals(content, post.content) && Objects.equals(comments, post.comments) && Objects.equals(board, post.board) && Objects.equals(id, post.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, content, comments, board, id);
+        return Objects.hash(title, content, comments, board, viewCount, recommendationCount, id);
     }
 }
 
