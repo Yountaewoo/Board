@@ -1,9 +1,6 @@
 package yountaewoo.Board;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +9,9 @@ import java.util.Objects;
 public class Post {
     private String title;
     private String content;
+    @OneToMany
     private List<Comment> comments;
+    @ManyToOne
     private Board board;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,52 +1,50 @@
 package yountaewoo.Board;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
-    @Entity
-    public class Comment {
-        private String content;
-        private Post post;
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        Long id;
+@Entity
+public class Comment {
+    private String content;
+    @ManyToOne
+    private Post post;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
-        protected Comment() {
-        }
-
-        public Comment(String content, Long id, Post post) {
-            this.content = content;
-            this.id = id;
-            this.post = post;
-        }
-
-        public String getContent() {
-            return content;
-        }
-
-        public Long getId() {
-            return id;
-        }
-
-        public Post getPost() {
-            return post;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Comment comment = (Comment) o;
-            return Objects.equals(content, comment.content) && Objects.equals(post, comment.post) && Objects.equals(id, comment.id);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(content, post, id);
-        }
+    protected Comment() {
     }
+
+    public Comment(String content, Long id, Post post) {
+        this.content = content;
+        this.id = id;
+        this.post = post;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(content, comment.content) && Objects.equals(post, comment.post) && Objects.equals(id, comment.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(content, post, id);
+    }
+}
 

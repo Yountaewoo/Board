@@ -1,9 +1,6 @@
 package yountaewoo.Board;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +8,7 @@ import java.util.Objects;
 @Entity
 public class Board {
     private String name;
+    @OneToMany
     private List<Post> posts;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
